@@ -5,26 +5,24 @@
 .circleci*
 docs*
 tests*
+tests/dump*
+
 .vscode*
 .idea*
 venv*
-go*
-peepdf*
+__pycache__*
+*.pyc
 dump*
 
-README.md
-README.md.bu
-NOTES.md
+# Dev / legacy files not needed in the image (the Go source and the Python
+# analysis files are intentionally NOT ignored).
 LICENSE
-VERSION
-circle.yml
-CHANGELOG.md
 Makefile
-run.sh
-results.json
-pdf.py
-*.log
+README*
+CHANGELOG.md
+NOTES.md
+requirements.txt
+hooks*
+config.toml
 Dockerfile.ubuntu
-
 peepdf*
-embedded_file_obj_8

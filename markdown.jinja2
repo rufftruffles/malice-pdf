@@ -1,5 +1,5 @@
 ### pdf
-{% if pdfid is not none -%}
+{% if pdfid is not none and pdfid.get('isPdf') == 'True' -%}
 #### [PDFiD]
  - **PDF Header:** `{{ pdfid['header'] }}`
  - **Total Entropy:** `{{ pdfid['totalEntropy'] }}`
@@ -44,6 +44,9 @@
  - {{ reason }}
 {% endfor -%}
 {%- endif %}
+{%- endif %}
+{% if pdfid is not none and pdfid.get('error') -%}
+> {{ pdfid.get('error') }}
 {%- endif %}
 {% if streams is not none -%}
 #### [pdf-parser]

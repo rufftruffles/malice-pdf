@@ -2,7 +2,7 @@
 
 name = 'pdf'
 description = 'PDF - tool to triage PDF documents'
-category = 'doc'
+category = 'document'
 version = '0.1.0'
 
 accepts = [
