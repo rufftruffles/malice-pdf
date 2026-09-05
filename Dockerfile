@@ -3,9 +3,6 @@
 ####################################################
 FROM golang:1.25-bookworm AS go_builder
 
-# Local ES 8 port of malice-plugins/pkgs. Passed as an additional build
-# context: docker build --build-context pkgs=../malice-plugins
-COPY --from=pkgs . /build/malice-plugins/
 COPY . /build/pdf/
 WORKDIR /build/pdf
 

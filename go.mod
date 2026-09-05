@@ -22,4 +22,4 @@ require (
 	golang.org/x/sys v0.24.0 // indirect
 )
 
-replace github.com/malice-plugins/pkgs => ../malice-plugins
+replace github.com/malice-plugins/pkgs => github.com/rufftruffles/malice-plugins v1.0.1
