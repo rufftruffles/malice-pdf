@@ -1,0 +1,30 @@
+name: build
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image
+        run: make build && make tag
+
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${GITHUB_ACTOR}" --password-stdin
+
+      - name: Push
+        run: |
+          docker tag malice/pdf:latest ghcr.io/rufftruffles/malice-pdf:1.0.0
+          docker tag malice/pdf:latest ghcr.io/rufftruffles/malice-pdf:latest
+          docker push ghcr.io/rufftruffles/malice-pdf:1.0.0
+          docker push ghcr.io/rufftruffles/malice-pdf:latest
